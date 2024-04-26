@@ -130,6 +130,13 @@ def add_appointment():
         session.add(patient)
         session.commit()
         kind = 'New patient'
+        
+    existing_appointment = session.query(Appointment).filter(
+        Appointment.patient_id == patient.id,
+        Appointment.date_time == date_time
+    ).first()
+    if existing_appointment:
+        abort(400, description="Patient already has an appointment at the same time.")
 
     # Check if start time is valid (15-minute intervals)
     if date_time.minute % 15 != 0:
