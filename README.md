@@ -13,7 +13,8 @@ python app.py (if this does not work, try python3 app.py)
    - Checking for patient email format
    - checking for the right date_time format from param/body
 2) Ensured new patient is added as 'New patient'. Patients with any prior appointments are 'Follow up'.
-3) Assumed each default duration of appointment to be 15 minutes
+3) Assumed each default duration of appointment to be 15 minutes.
+4) Added logic to make sure that the patient cannot book 2 appointments at the same time.
 
 ## Recommendation:
 Use Postman to check the endpoints and their responses
